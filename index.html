@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Business Value &amp; Sale Readiness Review — Transworld M&amp;A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Source Sans 3', sans-serif; background: #F0EDE7; color: #111; }
+  .app { max-width: 920px; margin: 0 auto; padding-bottom: 4rem; background: #F0EDE7; }
+  .header { background: #1E4D2B; padding: 1.5rem 2.5rem 1.75rem; }
+  .header-top { display: flex; align-items: center; gap: 14px; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.2); }
+  .logo-diamond { width: 36px; height: 36px; background: #B8960E; transform: rotate(45deg); border-radius: 3px; flex-shrink: 0; }
+  .brand { font-family: 'Merriweather', serif; font-size: 18px; font-weight: 700; color: #ffffff; letter-spacing: 0.04em; }
+  .sub { font-size: 10px; color: #cccccc; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 1px; }
+  .header-rule { flex: 1; height: 1px; background: rgba(255,255,255,0.2); }
+  .header-tagline { font-size: 11px; color: #cccccc; letter-spacing: 0.08em; text-transform: uppercase; }
+  .header h1 { font-family: 'Merriweather', serif; font-size: 22px; font-weight: 700; color: #ffffff; line-height: 1.3; }
+  .header p { font-size: 13px; color: #dddddd; margin-top: 0.35rem; }
+  .seller-bar { background: #1E4D2B; border-bottom: 2px solid #0D3018; padding: 1rem 2.5rem; display: flex; gap: 2rem; align-items: flex-end; flex-wrap: wrap; }
+  .seller-bar label { font-size: 11px; color: #cccccc; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; display: block; margin-bottom: 4px; }
+  .seller-bar input { border: 2px solid rgba(255,255,255,0.35); border-radius: 5px; padding: 6px 12px; font-size: 13px; font-family: 'Source Sans 3', sans-serif; color: #ffffff; background: rgba(255,255,255,0.1); }
+  .seller-bar input::placeholder { color: rgba(255,255,255,0.45); }
+  .seller-bar input:focus { outline: none; border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.15); }
+  .dashboard { background: #2D4A2D; padding: 1.5rem 2.5rem; }
+  .dash-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #dddddd; margin-bottom: 1rem; }
+  .dash-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .dash-card { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 7px; padding: 0.7rem 0.9rem 0.75rem; cursor: pointer; transition: all 0.15s; }
+  .dash-card:hover { background: rgba(255,255,255,0.2); }
+  .dash-card.active-section { border-color: #B8960E; background: rgba(184,150,14,0.2); }
+  .dash-cat { font-size: 9px; font-weight: 700; color: #dddddd; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .dash-score { font-family: 'Merriweather', serif; font-size: 22px; font-weight: 700; color: #ffffff; line-height: 1; }
+  .dash-bar-wrap { margin-top: 7px; height: 3px; background: rgba(255,255,255,0.2); border-radius: 2px; }
+  .dash-bar { height: 3px; border-radius: 2px; background: #B8960E; transition: width 0.3s; }
+  .overall-row { display: flex; align-items: center; gap: 12px; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.2); }
+  .overall-label { font-size: 11px; color: #dddddd; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 600; }
+  .overall-num { font-family: 'Merriweather', serif; font-size: 32px; color: #ffffff; font-weight: 700; }
+  .overall-denom { font-size: 14px; color: #aaaaaa; }
+  .overall-status { margin-left: auto; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .status-low { background: #7F1D1D; color: #FFD0D0; }
+  .status-mid { background: #78350F; color: #FFE8A0; }
+  .status-high { background: #14532D; color: #A0F0BC; }
+  .section-content { padding: 2rem 2.5rem; background: #F0EDE7; }
+  .section-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid #B8D0BC; }
+  .section-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #7A5C10; margin-bottom: 4px; }
+  .section-title { font-family: 'Merriweather', serif; font-size: 20px; font-weight: 700; color: #1E4D2B; }
+  .section-goal { font-size: 13px; color: #333333; margin-top: 4px; font-weight: 500; }
+  .section-avg-label { font-size: 10px; color: #333333; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 700; }
+  .section-avg-num { display: block; font-family: 'Merriweather', serif; font-size: 30px; font-weight: 700; color: #1E4D2B; line-height: 1; margin-top: 2px; }
+  .question-card { background: #ffffff; border: 2px solid #A09080; border-radius: 8px; padding: 1.25rem 1.5rem 0; margin-bottom: 1rem; border-left: 4px solid #A09080; }
+  .question-card.flagged { border-left-color: #CC0000; }
+  .q-num { background: #C8DEC8; color: #1A3D22; font-size: 11px; font-weight: 700; border-radius: 4px; padding: 3px 9px; white-space: nowrap; flex-shrink: 0; margin-top: 1px; letter-spacing: 0.05em; border: 1px solid #8AB88A; }
+  .q-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 0.75rem; }
+  .q-text { font-size: 14px; font-weight: 700; color: #111111; line-height: 1.5; }
+  .q-answer { width: 100%; border: 2px solid #A09080; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-family: 'Source Sans 3', sans-serif; color: #111111; resize: vertical; min-height: 68px; background: #ffffff; margin-bottom: 0; line-height: 1.5; }
+  .q-answer:focus { outline: none; border-color: #1E4D2B; }
+  .q-answer::placeholder { color: #999999; font-style: italic; }
+  .notes-answer { width: 100%; border: 2px solid #A09080; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-family: 'Source Sans 3', sans-serif; color: #111111; resize: vertical; min-height: 100px; background: #ffffff; margin-bottom: 0; line-height: 1.5; }
+  .notes-answer:focus { outline: none; border-color: #1E4D2B; }
+  .notes-answer::placeholder { color: #999999; font-style: italic; }
+  .q-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; background: #2C3528; border-radius: 0 0 5px 5px; padding: 8px 12px; margin: 10px -1.5rem 0; flex-wrap: nowrap; }
+  .rating-controls { display: flex; align-items: center; gap: 5px; flex-wrap: nowrap; }
+  .rating-label { font-size: 11px; color: #ffffff; font-weight: 700; margin-right: 2px; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; }
+  .notes-card { background: #ffffff; border: 2px solid #A09080; border-radius: 8px; padding: 1.25rem 1.5rem 0; margin-bottom: 1rem; border-left: 4px solid #B8960E; }
+  .notes-card.flagged { border-left-color: #CC0000; }
+  .notes-header { display: flex; align-items: center; gap: 10px; margin-bottom: 0.75rem; }
+  .notes-badge { background: #FAF0D0; color: #7A5C10; font-size: 11px; font-weight: 700; border-radius: 4px; padding: 3px 9px; white-space: nowrap; flex-shrink: 0; letter-spacing: 0.05em; border: 1px solid #D4B86A; }
+  .notes-title { font-size: 14px; font-weight: 700; color: #111111; line-height: 1.45; }
+  .notes-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; background: #2C3528; border-radius: 0 0 5px 5px; padding: 8px 12px; margin: 10px -1.5rem 0; }
+  .flags-summary { background: #ffffff; border: 2px solid #A09080; border-top: 4px solid #CC0000; border-radius: 8px; padding: 1.25rem 1.5rem; margin: 0 2.5rem 1rem; }
+  .flags-title { font-size: 12px; font-weight: 700; color: #990000; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 7px; }
+  .flag-item { font-size: 13px; color: #111111; padding: 6px 0; border-bottom: 1px solid #E0DDD8; display: flex; gap: 12px; align-items: baseline; }
+  .flag-item:last-child { border-bottom: none; }
+  .flag-item-cat { font-size: 10px; color: #1A3D22; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; min-width: 90px; }
+  .flag-rating { font-size: 11px; color: #444444; white-space: nowrap; font-weight: 700; }
+  .print-btn { display: block; margin: 1.5rem 2.5rem 0; padding: 13px 28px; background: #1E4D2B; color: #ffffff; border: 3px solid #0D3018; border-radius: 6px; font-size: 15px; font-family: 'Source Sans 3', sans-serif; font-weight: 700; cursor: pointer; letter-spacing: 0.08em; text-transform: uppercase; }
+  .print-btn:hover { background: #163D20; }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="header">
+    <div class="header-top">
+      <div class="logo-diamond"></div>
+      <div><div class="brand">TRANSWORLD</div><div class="sub">Business Advisors · M&A</div></div>
+      <div class="header-rule"></div>
+      <div class="header-tagline">Confidential Review</div>
+    </div>
+    <h1>Business Value &amp; Sale Readiness Review</h1>
+    <p>Evaluate business value and diagnose sale readiness before going to market</p>
+  </div>
+  <div class="seller-bar">
+    <div><label>Business / Seller Name</label><input type="text" id="seller-name" placeholder="e.g. Acme Industries — John Smith" style="width:240px;" /></div>
+    <div><label>Advisor</label><input type="text" id="advisor-name" placeholder="Your name" style="width:160px;" /></div>
+    <div><label>Date</label><input type="text" id="diag-date" style="width:130px;" /></div>
+  </div>
+  <div class="dashboard">
+    <div class="dash-label">Score Summary</div>
+    <div class="dash-grid" id="dash-grid"></div>
+    <div class="overall-row">
+      <span class="overall-label">Overall</span>
+      <span class="overall-num" id="overall-num">—</span>
+      <span class="overall-denom">/ 5.0</span>
+      <span class="overall-status" id="overall-status"></span>
+    </div>
+  </div>
+  <div id="section-area"></div>
+  <div id="flags-area"></div>
+  <button class="print-btn" onclick="printSummary()">Print / Export Summary</button>
+</div>
+
+<script>
+const SECTIONS=[{id:'earnings',label:'Earnings Quality',short:'Earnings Quality',goal:'What is the business worth?',questions:[{text:'Are revenue and profits growing, stable, or declining over 3+ years?'},{text:'What is true normalized SDE/EBITDA (after add-backs)?'},{text:'How do margins compare to industry benchmarks?'},{text:'Are the financials clean, consistent, and professionally prepared?'},{text:'How well are their accounts receivable and payable cycles aligned, and are there opportunities to improve cash flow timing between when they collect and when they pay?'}]},{id:'value',label:'Value Drivers',short:'Value Drivers',goal:'Why would someone pay a premium?',questions:[{text:'Is revenue diversified (no customer or vendor concentration)?'},{text:'Is revenue recurring and predictable?'},{text:'What is the clear growth opportunity for a buyer?'},{text:'Does the business have a defensible competitive advantage?'},{text:'Does the company have any current lawsuits or a history of lawsuits? Is the company current on all tax filings and tax payments?'}]},{id:'transferability',label:'Transferability',short:'Transferability',goal:'Can a buyer step in without things breaking?',questions:[{text:'How dependent is the business on the owner?'},{text:'Is there a strong management team that will stay post-close?'},{text:'Are key contracts (customers, vendors, lease) assignable?'},{text:'Are processes documented and consistently followed?'},{text:'Is there any key-person risk (employees, relationships, knowledge)?'}]},{id:'readiness',label:'Owner Readiness',short:'Owner Readiness',goal:'Does this deal make sense and will the owner follow through?',questions:[{text:'Why is the owner selling and are they ready to follow through?'},{text:'What does the owner actually want (price vs. structure vs. legacy)?'},{text:"What are the owner's post-exit financial needs (minimum acceptable outcome)?"},{text:'Is the industry growing, stable, or declining?'},{text:'Are all shareholders aligned on the exit?'}]}];
+
+const state={};
+SECTIONS.forEach(s=>{state[s.id]=s.questions.map(()=>({rating:0,na:false,answer:'',flagged:false}))});
+const notesState={text:'',flagged:false};
+let current='earnings';
+
+function avg(id){const r=state[id].filter(q=>q.rating>0&&!q.na);if(!r.length)return null;return r.reduce((a,q)=>a+q.rating,0)/r.length;}
+function overallAvg(){let t=0,c=0;SECTIONS.forEach(s=>{const a=avg(s.id);if(a!==null){t+=a;c++;}});return c?t/c:null;}
+function rWord(r,na){if(na)return'N/A';return['','Critical','Weak','Moderate','Strong','Excellent'][r]||'';}
+function statusLabel(oa){if(oa===null)return'';if(oa<2.5)return'Needs Work';if(oa<3.75)return'Developing';return'Market Ready';}
+
+function getBtnStyle(n,rating,na){
+  if(na)return'background:#3D4A38;border:2px solid #8AAA88;color:#E8F0E0;';
+  if(rating>=n){
+    if(n<=2)return'background:#7F1D1D;border:2px solid #F87171;color:#FFE0E0;';
+    if(n===3)return'background:#78350F;border:2px solid #FBBF24;color:#FFF0C0;';
+    return'background:#14532D;border:2px solid #4ADE80;color:#D0FFE0;';
+  }
+  return'background:#3D4A38;border:2px solid #8AAA88;color:#E8F0E0;';
+}
+
+function getFlagStyle(flagged){
+  if(flagged)return'background:#7F1D1D;border:2px solid #F87171;color:#FFD0D0;';
+  return'background:#3D4A38;border:2px solid #8AAA88;color:#ffffff;';
+}
+
+function renderDash(){
+  document.getElementById('dash-grid').innerHTML=SECTIONS.map(s=>{
+    const a=avg(s.id);const pct=a?(a/5)*100:0;
+    return`<div class="dash-card${s.id===current?' active-section':''}" onclick="switchSection('${s.id}')"><div class="dash-cat">${s.short}</div><div class="dash-score">${a!==null?a.toFixed(1):'—'}</div><div class="dash-bar-wrap"><div class="dash-bar" style="width:${pct}%"></div></div></div>`;
+  }).join('');
+  const oa=overallAvg();
+  document.getElementById('overall-num').textContent=oa!==null?oa.toFixed(1):'—';
+  const st=document.getElementById('overall-status');
+  if(oa===null){st.textContent='';st.className='overall-status';}
+  else if(oa<2.5){st.textContent='Needs Work';st.className='overall-status status-low';}
+  else if(oa<3.75){st.textContent='Developing';st.className='overall-status status-mid';}
+  else{st.textContent='Market Ready';st.className='overall-status status-high';}
+}
+
+function renderSection(){
+  const s=SECTIONS.find(x=>x.id===current);
+  const qs=state[current];const a=avg(current);
+  const nb=current==='readiness'?renderNotesCard():'';
+  document.getElementById('section-area').innerHTML=`<div class="section-content"><div class="section-header"><div><div class="section-eyebrow">Sale Readiness Factor</div><div class="section-title">${s.label}</div><div class="section-goal">${s.goal}</div></div><div class="section-avg" style="text-align:right"><div class="section-avg-label">Section avg</div><span class="section-avg-num">${a!==null?a.toFixed(1):'—'}</span></div></div>${s.questions.map((q,i)=>renderQ(q,i,qs[i])).join('')}${nb}</div>`;
+}
+
+function renderNotesCard(){
+  const fs=getFlagStyle(notesState.flagged);
+  return`<div class="notes-card${notesState.flagged?' flagged':''}"><div class="notes-header"><span class="notes-badge">Notes</span><span class="notes-title">General observations, concerns, or follow-up items</span></div><textarea class="notes-answer" placeholder="Add any additional notes about this owner, the deal context, or items to revisit..." oninput="updateNotes(this.value)">${notesState.text}</textarea><div class="notes-footer"><button style="width:28px;height:28px;border-radius:5px;border:2px solid #C8A878;background:#4A3D30;cursor:pointer;font-size:18px;line-height:1;color:#FFE8C0;font-family:Arial,sans-serif;display:flex;align-items:center;justify-content:center;" title="Clear notes" onclick="clearNotes()">↺</button><button style="${fs}display:flex;align-items:center;gap:5px;cursor:pointer;font-size:11px;font-weight:700;font-family:'Source Sans 3',sans-serif;padding:5px 10px;border-radius:5px;white-space:nowrap;" onclick="toggleNotesFlag()"><span>${notesState.flagged?'⚑':'⚐'}</span>${notesState.flagged?'Flagged':'Flag to work on'}</button></div></div>`;
+}
+
+function renderQ(q,i,qs){
+  const isNA=qs.na;
+  const btns=[1,2,3,4,5].map(n=>{
+    const s=getBtnStyle(n,qs.rating,isNA);
+    const dim=isNA?'opacity:0.4;pointer-events:none;':'';
+    return`<button style="width:28px;height:28px;border-radius:5px;${s}${dim}cursor:pointer;font-size:13px;font-weight:700;font-family:'Source Sans 3',sans-serif;display:flex;align-items:center;justify-content:center;flex-shrink:0;" onclick="setRating('${current}',${i},${n})">${n}</button>`;
+  }).join('');
+  const naS=isNA?'background:#4A4A6A;border:2px solid #A0A0DD;color:#D8D8FF;':'background:#3D4A38;border:2px solid #8AAA88;color:#E8F0E0;';
+  const flagS=getFlagStyle(qs.flagged);
+  return`<div class="question-card${qs.flagged?' flagged':''}"><div class="q-header"><span class="q-num">Q${i+1}</span><span class="q-text">${q.text}</span></div><textarea class="q-answer" placeholder="Enter seller's response or your observations..." oninput="updateAnswer('${current}',${i},this.value)">${qs.answer}</textarea><div class="q-footer"><div class="rating-controls"><span class="rating-label">Rating</span>${btns}<button style="width:28px;height:28px;border-radius:5px;${naS}cursor:pointer;font-size:10px;font-weight:700;font-family:'Source Sans 3',sans-serif;display:flex;align-items:center;justify-content:center;flex-shrink:0;" onclick="toggleNA('${current}',${i})">N/A</button><button style="width:28px;height:28px;border-radius:5px;border:2px solid #C8A878;background:#4A3D30;cursor:pointer;font-size:18px;line-height:1;color:#FFE8C0;font-family:Arial,sans-serif;display:flex;align-items:center;justify-content:center;flex-shrink:0;" title="Clear rating" onclick="resetRating('${current}',${i})">↺</button><span style="font-size:11px;color:#cccccc;font-style:italic;font-weight:600;white-space:nowrap;min-width:52px;">${rWord(qs.rating,isNA)}</span></div><button style="${flagS}display:flex;align-items:center;gap:5px;cursor:pointer;font-size:11px;font-weight:700;font-family:'Source Sans 3',sans-serif;padding:5px 10px;border-radius:5px;white-space:nowrap;flex-shrink:0;" onclick="toggleFlag('${current}',${i})"><span>${qs.flagged?'⚑':'⚐'}</span>${qs.flagged?'Flagged':'Flag to work on'}</button></div></div>`;
+}
+
+function updateAnswer(sid,i,val){state[sid][i].answer=val;renderFlags();}
+function updateNotes(val){notesState.text=val;renderFlags();}
+function clearNotes(){notesState.text='';notesState.flagged=false;renderSection();renderFlags();}
+function toggleNotesFlag(){notesState.flagged=!notesState.flagged;renderSection();renderFlags();}
+function setRating(sid,i,val){state[sid][i].na=false;state[sid][i].rating=state[sid][i].rating===val?0:val;renderSection();renderDash();renderFlags();}
+function toggleNA(sid,i){state[sid][i].na=!state[sid][i].na;if(state[sid][i].na)state[sid][i].rating=0;renderSection();renderDash();renderFlags();}
+function resetRating(sid,i){state[sid][i].rating=0;state[sid][i].na=false;renderSection();renderDash();renderFlags();}
+function toggleFlag(sid,i){state[sid][i].flagged=!state[sid][i].flagged;renderSection();renderDash();renderFlags();}
+
+function renderFlags(){
+  const all=[];
+  SECTIONS.forEach(s=>s.questions.forEach((q,i)=>{if(state[s.id][i].flagged)all.push({cat:s.label,q:q.text,rating:state[s.id][i].rating,na:state[s.id][i].na,isNote:false});}));
+  if(notesState.flagged&&notesState.text)all.push({cat:'Owner Readiness',q:notesState.text,isNote:true});
+  const area=document.getElementById('flags-area');
+  if(!all.length){area.innerHTML='';return;}
+  area.innerHTML=`<div class="flags-summary"><div class="flags-title"><span style="width:8px;height:8px;border-radius:50%;background:#CC0000;display:inline-block"></span>Areas to work on before going to market (${all.length})</div>${all.map(f=>`<div class="flag-item"><span class="flag-item-cat">${f.cat}</span><span>${f.q}</span><span class="flag-rating">${f.isNote?'Note':f.na?'N/A':f.rating?f.rating+'/5 · '+rWord(f.rating,false):'—'}</span></div>`).join('')}</div>`;
+}
+
+function switchSection(id){current=id;renderSection();renderDash();}
+
+function printSummary(){
+  const sellerName=document.getElementById('seller-name').value||'—';
+  const advisorName=document.getElementById('advisor-name').value||'—';
+  const date=document.getElementById('diag-date').value||'—';
+  const oa=overallAvg();const oaStr=oa!==null?oa.toFixed(1)+' / 5.0':'—';const oaStatus=statusLabel(oa);
+  const scoreRows=SECTIONS.map(s=>{const a=avg(s.id);return`<tr style="border-bottom:1px solid #c8c4bc;"><td style="padding:10px 14px;font-weight:700;color:#111111;font-size:14px;background:#e8e4dc;">${s.label}</td><td style="padding:10px 14px;text-align:right;font-size:14px;color:#111111;font-weight:600;background:#e8e4dc;">${a!==null?a.toFixed(1)+' / 5.0':'—'}</td></tr>`;}).join('');
+  const flagged=[];
+  SECTIONS.forEach(s=>s.questions.forEach((q,i)=>{if(state[s.id][i].flagged)flagged.push({cat:s.label,q:q.text,answer:state[s.id][i].answer,rating:state[s.id][i].rating,na:state[s.id][i].na,isNote:false});}));
+  if(notesState.flagged&&notesState.text)flagged.push({cat:'Owner Readiness',q:'General Notes',answer:notesState.text,isNote:true});
+  const flaggedHTML=flagged.length?flagged.map(f=>`<div style="margin-bottom:20px;padding:18px;border:1px solid #bbb;border-left:5px solid #CC0000;border-radius:6px;background:#ffffff;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#1E4D2B;margin-bottom:6px;background:#d8edd8;display:inline-block;padding:3px 8px;border-radius:3px;">${f.cat}</div><div style="font-size:15px;font-weight:700;color:#111111;margin-bottom:10px;line-height:1.5;">${f.q}</div>${f.answer?`<div style="font-size:14px;color:#111111;background:#f8f8f8;padding:12px 14px;border-radius:5px;border:1px solid #ddd;line-height:1.7;">${f.answer}</div>`:'<div style="font-size:13px;color:#666666;font-style:italic;">No response entered</div>'}<div style="margin-top:10px;font-size:12px;font-weight:700;color:#333333;">${f.isNote?'Note':f.na?'Rated: N/A':f.rating?'Rating: '+f.rating+'/5 · '+rWord(f.rating,false):'Not rated'}</div></div>`).join(''):'<p style="color:#555555;font-style:italic;font-size:14px;">No items flagged.</p>';
+  const html=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Business Value &amp; Sale Readiness Review — ${sellerName}</title><style>* { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } body { font-family: Georgia, serif; margin: 0; padding: 0; background: #ffffff; color: #111111; } @media print { .no-print { display: none !important; } }</style></head><body><div style="-webkit-print-color-adjust:exact;print-color-adjust:exact;background-color:#1E4D2B;padding:28px 40px 24px;"><div style="display:flex;align-items:center;gap:14px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.3);"><div style="width:28px;height:28px;background-color:#B8960E;transform:rotate(45deg);border-radius:2px;flex-shrink:0;"></div><div><div style="font-family:Georgia,serif;font-size:17px;font-weight:700;color:#ffffff;">TRANSWORLD</div><div style="font-size:9px;color:#dddddd;text-transform:uppercase;">Business Advisors · M&amp;A</div></div><div style="flex:1;"></div><div style="font-size:10px;color:#dddddd;text-transform:uppercase;">Confidential Review</div></div><div style="font-family:Georgia,serif;font-size:21px;font-weight:700;color:#ffffff;">Business Value &amp; Sale Readiness Review</div><div style="font-size:13px;color:#dddddd;margin-top:5px;">Evaluate business value and diagnose sale readiness before going to market</div></div><div style="padding:24px 40px;background-color:#edeae3;border-bottom:2px solid #cccccc;"><table style="width:100%;border-collapse:collapse;"><tr><td style="padding:4px 0;width:33%;background-color:#edeae3;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#444444;margin-bottom:4px;">Business / Seller Name</div><div style="font-size:15px;font-weight:700;color:#111111;">${sellerName}</div></td><td style="padding:4px 0;width:33%;background-color:#edeae3;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#444444;margin-bottom:4px;">Advisor</div><div style="font-size:15px;font-weight:700;color:#111111;">${advisorName}</div></td><td style="padding:4px 0;width:33%;background-color:#edeae3;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#444444;margin-bottom:4px;">Date</div><div style="font-size:15px;font-weight:700;color:#111111;">${date}</div></td></tr></table></div><div style="padding:24px 40px 20px;background-color:#2D4A2D;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#ffffff;margin-bottom:12px;">Score Summary</div><table style="width:100%;border-collapse:collapse;">${scoreRows}<tr><td style="padding:12px 14px;font-weight:700;color:#ffffff;font-size:15px;background-color:#1E4D2B;border-top:2px solid #ffffff;">Overall</td><td style="padding:12px 14px;text-align:right;font-size:15px;color:#ffffff;font-weight:700;background-color:#1E4D2B;border-top:2px solid #ffffff;">${oaStr}${oaStatus?' · '+oaStatus:''}</td></tr></table></div><div style="padding:28px 40px;"><div style="font-size:11px;font-weight:700;text-transform:uppercase;color:#CC0000;margin-bottom:18px;">● Areas to work on before going to market (${flagged.length})</div>${flaggedHTML}</div><div style="padding:20px 40px;border-top:2px solid #cccccc;background-color:#f5f3ef;text-align:center;"><div style="font-size:11px;color:#555555;text-transform:uppercase;font-weight:600;">Transworld Business Advisors · M&amp;A · Confidential</div></div><div class="no-print" style="padding:20px 40px;text-align:center;"><p style="font-size:13px;color:#555;margin-bottom:12px;font-family:Arial,sans-serif;">To save in color: in the print dialog, look for <strong>More settings</strong> and enable <strong>Background graphics</strong>.</p><button onclick="window.print()" style="background-color:#1E4D2B;color:#ffffff;border:none;padding:13px 30px;font-size:14px;font-weight:700;border-radius:6px;cursor:pointer;font-family:Arial,sans-serif;">Print / Save as PDF</button></div></body></html>`;
+  const win=window.open('','_blank');win.document.write(html);win.document.close();
+}
+
+const today=new Date();
+document.getElementById('diag-date').value=today.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+renderDash();renderSection();
+</script>
+</body>
+</html>
